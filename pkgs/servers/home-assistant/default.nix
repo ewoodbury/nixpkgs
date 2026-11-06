@@ -64,16 +64,6 @@ let
         ];
       });
 
-      livisi = super.livisi.overridePythonAttrs (oldAttrs: rec {
-        version = "0.0.25";
-        src = fetchFromGitHub {
-          owner = "planbnet";
-          repo = "livisi";
-          tag = "v${version}";
-          hash = "sha256-kEkbuZmYzxhrbTdo7eZJYu2N2uJtfspgqepplXvSXFg=";
-        };
-      });
-
       notifications-android-tv = super.notifications-android-tv.overridePythonAttrs (oldAttrs: rec {
         version = "0.1.5";
         format = "setuptools";
