@@ -16,7 +16,7 @@ let
     hash = "sha256-SQoNdkWMjnasPjpXQF2yV97MUra8gb27pc3rNoA8Rjw=";
   };
 in
-buildPythonPackage (finalAttrs: {
+buildPythonPackage rec {
   pname = "paho-mqtt";
   version = "2.2.0";
   pyproject = true;
@@ -24,7 +24,7 @@ buildPythonPackage (finalAttrs: {
   src = fetchFromGitHub {
     owner = "eclipse";
     repo = "paho.mqtt.python";
-    tag = "v${finalAttrs.version}";
+    rev = "v${version}";
     hash = "sha256-gYCV8n+pNh62eDitfh4/mj4wu24GEthRtWV5Pa6M9bY=";
   };
 
@@ -55,7 +55,7 @@ buildPythonPackage (finalAttrs: {
   };
 
   meta = {
-    changelog = "https://github.com/eclipse/paho.mqtt.python/blob/${finalAttrs.src.tag}/ChangeLog.txt";
+    changelog = "https://github.com/eclipse/paho.mqtt.python/blob/${src.rev}/ChangeLog.txt";
     description = "MQTT version 5.0/3.1.1 client class";
     homepage = "https://eclipse.org/paho";
     license = lib.licenses.epl20;
@@ -64,4 +64,4 @@ buildPythonPackage (finalAttrs: {
       dotlambda
     ];
   };
-})
+}
